@@ -2,13 +2,15 @@
 
 [***Git Repo:*** https://github.com/microsoft/sbom-tool](https://github.com/microsoft/sbom-tool)
 
-The SBOM-Tool calls the [Component-Detection](#component-detection-tool) tool on the directory which gets the components and their graph. The sbom-tool then uses this to create the spdx manifest file. The tool takes in, as parameter, [`generate`, -`b`, -`bc`, -`pn`, -`pv`, -`ps`, -`nsb`] with notable optionals of [-`m`, -`D`]. Only -`b` and -`bc` are used in populating the spdx file, the others create labels for the file. 
+Microsoft's sbom-tool is an SBOM generator tool that generates SPDX 2.2 SBOMs. It carries multilanguage support and is capable of adding support for other languages with minimal difficulty. 
 
-- `generate` - tells the tool to generate an sbom. There is another functionality that would be used instead of `generate` called `validate` but it seems to still be in development.
+The sbom-tool calls the [Component-Detection](#component-detection-tool) tool on a directory. The sbom-tool uses the information gathered to generate the spdx manifest file. The tool takes in, as required parameters, [`generate`, -`b`, -`bc`, -`pn`, -`pv`, -`ps`, -`nsb`] with notable optionals of [-`m`, -`D`]. 
+
+- `generate` - tells the tool to generate an sbom. There is another functionality that can be used instead of `generate` called `validate` but it seems to still be in development.
 
 - -`b` mostly populates the files section and should point to the root of the project. 
 
-- -`bc` determines where the component looks at and populates the packages and relationship section in the spdx. -`bc` can generally point to the root of the project as well.
+- -`bc` determines what directory is passed to the component-detection. -`bc` can generally point to the root of the project as well.
 
 - -`pn` package name
 
@@ -26,7 +28,7 @@ The SBOM-Tool calls the [Component-Detection](#component-detection-tool) tool on
    ---manifest.spdx.json
    ---manifest.spdx.json.sha256
 ```
-- -`D` - flag that tells tool to replace any existing manifest in manifest folder location. If -`m` is same as -`b` then software will act like -`D` is true
+- -`D` flag that tells tool to replace any existing manifest in manifest folder location. If -`m` is same as -`b` then software will act like -`D` is true
 
 *example:* `sbom-tool.exe generate -bc ".\sbom-tool" -b ".\sbom-tool" -m ".\sbom-tool" -pn devUSAF_PackageName -pv devUSAF_PackageVersion_0.0 -ps devUSAF_PackageSupplier -nsb http://USAF_UNOFFICIAL_DEVELOPMENT.gov -D true`
 
