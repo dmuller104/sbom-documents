@@ -80,13 +80,13 @@ Daggerboard purports to support both CycloneDX and SPDX. OWASP, the designers of
 ### Syft
 
 ### GitHub actions
--    Tutorial - create sbom artifact
+-    [Tutorial - Create SBOM artifact using sbom-tool and GitHub Actions](https://github.com/microsoft/sbom-tool/blob/main/docs/setting-up-github-actions.md)
+-    [Example - SBOM generation and conversion using Syft](syft_conversion.md)
 
 ### Consumption Tools
--    Dependency Track
--    Daggerboard
-       - Understanding
-       - Tutorial - Run and consume sbom
+-    [Dependency Track](owasp-dependency_track.md)
+-    [Daggerboard](https://github.com/nyph-infosec/daggerboard)
+       - [Tutorial - Run and consume sbom]()
 
 
 Create a document for new team members that guides them through the work accomplished so far on the generation and consumption tools, points them to resources and point of contacts such as those on the Microsoft Team.
