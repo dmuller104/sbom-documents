@@ -2,24 +2,56 @@
 
 The purpose of this document is to familiarize you to the development that has happened thus far with regards to SBOMs.
 
-There is no specific language you need to know to get into these thins; however, a knowledge of C# can greatly help in understanding the code of the Microsoft sbom-tool.
+There is no specific language you need to know; however, a knowledge of C# might help to gain a more in depth understanding of the code for the Microsoft sbom-tool. 
 
-This document is created with being on a windows device in mind. Linux or mac might require some adaptation.
+This document is created for a windows device. Linux or mac might require some adaptation.
 
 ## SBOM
 
-An SBOM, or a Software Bill of Materials can be thought of as a blueprint of software. A generator tool will take in the source code of a project, will find "components" and relationships within the code, and will generate an SBOM out of this information. The SBOM can then be "consumed" with a consumption tool to get the vulnerabilities of the components of the project. 
+An SBOM, or a Software Bill of Materials, can be thought of as a blueprint of software. A generator tool will take in the source code of a project, will find "components" and relationships within the code, and will generate an SBOM out of this information. The SBOM can then be "consumed" with a consumption tool to get the vulnerabilities of the components of the project. 
 
-An end goal in this project is to 
-1. Be able to produce an SBOM for every language
+**End goals:**
+1. Produce SBOMs for all programming languages used by USAF
 2. Incorporate SBOM generation into a pipeline
 3. Store SBOMs in a coherent, accessible manner
 4. Allow the consumption/analysis of SBOMs 
-5. Possibly the automation of SBOM consumption
 
-Major focuses right now are on
+**Other possible goals:**
+1. Automation of SBOM consumption
+
+**Current major focuses**
 1. Microsoft sbom-tool for SBOM generation
 2. Daggerboard for SBOM consumption
+
+**Accomplishments:**
+1. Generate SBOM using sbom-tool for a C# project
+   - [sbom tool](SBOM-TOOL.docx)
+   - [sbom tool example](sbomtool-example-dotnet.md)
+2. Generate SBOM using github actions
+3. Using docker, experiment with sbom consumption tools 
+   - [dependency track](https://dependencytrack.org/)
+   - [daggerboard](https://github.com/nyph-infosec/daggerboard)
+4. Create a detector for the component-detection tool
+   - [create detector](https://github.com/microsoft/component-detection/blob/main/docs/creating-a-new-detector.md)
+
+**Issues:**
+1. We do not have a good way of generating an SBOM for C/C++ projects
+   - Look into vcpkg, since May 2022 they should generate a vcpkg.spdx.json file that can be consumed using the vcpkg experimental tool
+2. Detector needs to be created for Jovial and Ada (requires `(possibly advanced)` knowledge of Jovial and Ada language and environment)
+3. Dependency Track only works with CycloneDX - likely won't change
+4. Daggerboard needs further development - opportunity to partner with NYPH (new york presbyterian hospital) and have large say in roadmap/development of Daggerboard
+
+Resources:
+- https://github.com/microsoft/sbom-tool
+- https://github.com/microsoft/component-detection
+- https://github.com/nyph-infosec/daggerboard
+- https://dependencytrack.org/
+- https://cyclonedx.org/
+- https://spdx.dev/
+- https://github.com/AppThreat/cdxgen
+
+
+[**Contacts**](contacts.md)
 
 
 ## Types of SBOMs
@@ -55,11 +87,6 @@ Daggerboard purports to support both CycloneDX and SPDX. OWASP, the designers of
 -    Daggerboard
        - Understanding
        - Tutorial - Run and consume sbom
-
-
-### Contacts:
-    Adrian
-    Daggerboard
 
 
 Create a document for new team members that guides them through the work accomplished so far on the generation and consumption tools, points them to resources and point of contacts such as those on the Microsoft Team.
