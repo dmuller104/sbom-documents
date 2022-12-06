@@ -86,7 +86,6 @@ Daggerboard purports to support both CycloneDX and SPDX. OWASP, the designers of
 ### Consumption Tools
 -    [Dependency Track](owasp-dependency_track.md)
 -    [Daggerboard](https://github.com/nyph-infosec/daggerboard)
-       - [Tutorial - Run and consume sbom]()
 
 
 Create a document for new team members that guides them through the work accomplished so far on the generation and consumption tools, points them to resources and point of contacts such as those on the Microsoft Team.
