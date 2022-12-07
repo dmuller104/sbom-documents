@@ -32,3 +32,29 @@ Unsuccessful at creating an SBOM from a C/C++ project.
 ## Workflow
 
 Difficulty getting it to work on GitHub Actions
+
+
+
+## Tutorial
+
+If cdxgen is in PATH. Below gives 
+
+```
+git clone https://github.com/Ryujinx/Ryujinx.git
+
+cdxgen Ryujinx -r -o _manifest.cyclonedx.json
+```
+
+If cdxgen in PATH and .NET is 7.0. Below gives 264 components
+```
+git clone https://github.com/Ryujinx/Ryujinx
+
+cd Ryujinx
+
+dotnet build -c Release -o build
+
+cd ..
+
+cdxgen Ryujinx -r -o _manifest.cyclonedx.json
+
+```

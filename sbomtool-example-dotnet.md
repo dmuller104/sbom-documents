@@ -1,4 +1,4 @@
-For this example the sbom-tool will be run on a dotnet project. 
+Following the instructions below should result in an SBOM for a .NET project using the Microsoft SBOM-tool.
 
 Notes: 
 
@@ -10,14 +10,18 @@ Project: https://github.com/Ryujinx/Ryujinx
 
 ```
 git clone https://github.com/Ryujinx/Ryujinx
+
 cd Ryujinx
+
 dotnet build -c Release -o build
+
 cd ..
+
 sbom-tool Generate -b Ryujinx -bc Ryujinx -m . -pn pn1.1 -ps psSupplier -pv pv1.1 -nsb https://fakeexample.com
 
 ```
 
-First, cloning the repo:
+First, cloning the repo from github:
 
 `git clone https://github.com/Ryujinx/Ryujinx`
 
@@ -25,7 +29,7 @@ Move into the root of the project:
 
 `cd Ryujinx`
 
-Build the project (dotnet needs to be .NET 7.0 or highter):
+Build the project (dotnet needs to be .NET 7.0 or higher):
 
 `dotnet build -c Release -o build`
 
@@ -36,6 +40,8 @@ Move back to the parent directory:
 run the sbom-tool:
 
 `sbom-tool Generate -b Ryujinx -bc Ryujinx -m . -pn pn1.1 -ps psSupplier -pv pv1.1 -nsb https://fakeexample.com`
+
+When the sbom-tool runs you will see a table. This is the component-detection tool being run from the sbom-tool. 104 components were found with 40 explicitly referenced, all of which are from the NuGetProjectCentric detector. 
 
 ---
 

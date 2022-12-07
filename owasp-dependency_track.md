@@ -53,4 +53,4 @@ curl -LO https://dependencytrack.org/docker-compose.yml
 docker-compose up -d
 ```
 
-go to `localhost:8080`
+go to `localhost:8080` in chrome
