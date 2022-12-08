@@ -1,4 +1,6 @@
-### Running the component detection using Linux detector
+### Running component detection using Linux detector
+
+Note: This functionality makes use of Syft within Microsoft's detector.
 
 Run the tool on a docker image. 
 

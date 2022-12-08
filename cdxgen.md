@@ -37,7 +37,7 @@ Difficulty getting it to work on GitHub Actions
 
 ## Tutorial
 
-If cdxgen is in PATH. Below gives 
+If cdxgen is in PATH. Below gives 48 components
 
 ```
 git clone https://github.com/Ryujinx/Ryujinx.git
